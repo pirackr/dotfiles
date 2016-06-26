@@ -34,6 +34,15 @@ _setup_emacs() {
     ln -s ~/dotfiles/emacs/personal ~/.emacs.d/personal
 }
 
+_install_liberation_mono_powerline() {
+    mkdir -p ~/.fonts
+    wget https://github.com/powerline/fonts/raw/master/LiberationMono/Literation%20Mono%20Powerline.ttf -O ~/.fonts/Liberation\ Mono\ Powerline.ttf
+    wget https://github.com/powerline/fonts/raw/master/LiberationMono/Literation%20Mono%20Powerline%20Bold.ttf -O ~/.fonts/Liberation\ Mono\ Powerline\ Bold.ttf
+    wget https://github.com/powerline/fonts/raw/master/LiberationMono/Literation%20Mono%20Powerline%20Italic.ttf -O ~/.fonts/Liberation\ Mono\ Powerline\ Italic.ttf
+    wget https://github.com/powerline/fonts/raw/master/LiberationMono/Literation%20Mono%20Powerline%20Bold%20Italic.ttf -O ~/.fonts/Liberation\ Mono\ Powerline\ Bold\ Italic.ttf
+    fc-cache -vf ~/.fonts    
+}
+
 _setup_nvm() {
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
 }
@@ -48,4 +57,4 @@ _run() {
     _setup_nvm
 }
 
-_run
+_install_liberation_mono_powerline
