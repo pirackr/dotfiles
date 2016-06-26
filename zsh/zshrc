@@ -1,0 +1,29 @@
+source ~/dotfiles/zsh/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle pyenv
+antigen bundle nvm
+antigen bundle ssh-agent
+
+# Extra stuff
+antigen bundle Tarrasch/zsh-autoenv
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme lambda
+
+# Tell antigen that you're done.
+antigen apply
+
+# Alias stuff
+alias workon='pyenv activate'
+alias deactivate='pyenv deactivate'
+alias django-test='xvfb-run python manage.py test --processes 8 --process-timeout 2000 --noinput --nologcapture -v 2'
+# export NVM_DIR="/home/hieu/.nvm" [ -s "$NVM_DIR/nvm.sh" ] &&
+#. "$NVM_DIR/nvm.sh" # This loads nvm
