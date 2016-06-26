@@ -18,8 +18,9 @@ _setup_urxvt() {
 }
 
 _setup_antigen() {
-    git clone https://github.com/zsh-users/antigen.git ~/dotfiles/antigen
+    git clone https://github.com/zsh-users/antigen.git ~/dotfiles/zsh/antigen
     ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+    ln -s ~/dotfiles/zsh/zprofile ~/.zprofile
 }
 
 _setup_python() {
