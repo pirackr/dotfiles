@@ -8,6 +8,11 @@ _install_packages() {
     sudo pacman -S --no-confirm cmus chromium zathura zathura-djvu zathura-pdf-mupdf scrot mirage sxiv virtualbox mps-youtube mplayer youtube-dl
 }
 
+_setup_urxvt() {
+    ln -s ~/dotfiles/urxvt/Xdefaults ~/.Xdefaults
+    ln -s ~/dotfiles/urxvt/Xresources ~/.Xresources
+}
+
 _create_directories() {
     mkdir -p ~/dotfiles
 }
@@ -41,4 +46,4 @@ _run() {
     _setup_nvm
 }
 
-run()
+_setup_urxvt
