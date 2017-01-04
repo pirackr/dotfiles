@@ -5,7 +5,7 @@ Xft.hinting:    true
 Xft.autohint:  true
 Xft.hintstyle:  hintfull   
 
-Rxvt*font:xft:Liberation Mono for Powerline:pixelsize=12
+Rxvt*font:xft:Liberation Mono:pixelsize=12
 
 URxvt*transparent: false
 URxvt*tintColor: White
