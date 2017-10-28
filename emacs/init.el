@@ -514,6 +514,15 @@ Start `ielm' if it's not already running."
   :config
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
+(use-package rspec-mode
+  :ensure t
+  :config
+  (setq rspec-use-docker-when-possible 1)
+  (setq rspec-docker-container "dev")
+  (setq rspec-docker-cwd "")
+  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+)
+
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
               (sequence "WAITING(w@/!)" "PHONE" "MEETING"))))
