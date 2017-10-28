@@ -159,11 +159,6 @@ Start `ielm' if it's not already running."
   (add-hook 'ielm-mode-hook #'eldoc-mode)
   (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
 
-(use-package zenburn-theme
-  :ensure t
-  :config
-  (load-theme 'zenburn t))
-
 ;; highlight the current line
 (global-hl-line-mode +1)
 
@@ -338,7 +333,7 @@ Start `ielm' if it's not already running."
         ido-auto-merge-work-directories-length -1)
   (ido-mode +1))
 
-(use-package ido-ubiquitous
+(use-package ido-completing-read+
   :ensure t
   :config
   (ido-ubiquitous-mode +1))
@@ -426,11 +421,6 @@ Start `ielm' if it's not already running."
          ([remap kill-whole-line] . crux-kill-whole-line)
          ("C-c s" . crux-ispell-word-then-abbrev)))
 
-(use-package aggressive-indent
-  :ensure t
-  :config
-  (global-aggressive-indent-mode +1))
-
 (use-package diff-hl
   :ensure t
   :config
@@ -454,7 +444,7 @@ Start `ielm' if it's not already running."
 (use-package ycmd
   :ensure t
   :config
-  (set-variable 'ycmd-server-command '("python" "/home/hieu/my-app/ycmd-2/ycmd/"))
+  (set-variable 'ycmd-server-command '("python" "/home/hieu/my-app/ycmd/ycmd/"))
   (global-ycmd-mode +1))
 
 (use-package company-ycmd
@@ -475,17 +465,82 @@ Start `ielm' if it's not already running."
   :config
   (add-hook 'python-mode-hook 'importmagic-mode))
 
+(use-package latex-preview-pane
+  :ensure t
+  :config)
+
 (use-package import-js
   :ensure t)
 
+(use-package haskell-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+(use-package docker-compose-mode
+  :ensure t)
+
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-ocean t))
+
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme)
+  (setq powerline-arrow-shape 'curve)
+  (setq powerline-default-separator-dir '(right . left))
+  )
+
+
+(use-package mode-icons
+  :ensure t
+  :config
+  (mode-icons-mode))
+
+(use-package dockerfile-mode
+  :ensure t)
+
+(use-package all-the-icons)
+
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+              (sequence "WAITING(w@/!)" "PHONE" "MEETING"))))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "blue" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("MEETING" :foreground "forest green" :weight bold)
+              ("PHONE" :foreground "forest green" :weight bold))))
+
+(setq org-agenda-files (list "~/workspace/dropbox-sync/Dropbox/org/todo.org.gpg"))
+
+(global-set-key (kbd "<f12>") 'org-agenda)
+(toggle-scroll-bar -1)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "78c1c89192e172436dbf892bd90562bc89e2cc3811b5f9506226e735a953a9c6" "2a998a3b66a0a6068bcb8b53cd3b519d230dd1527b07232e54c8b9d84061d48d" "cdfc5c44f19211cfff5994221078d7d5549eeb9feda4f595a2fd8ca40467776c" default)))
  '(package-selected-packages
    (quote
-    (elixir-mode cask-mode buttercup rainbow-mode ztree zop-to-char zenburn-theme yasnippet yaml-mode which-key use-package super-save smex rainbow-delimiters pt projectile paredit noflet multiple-cursors move-text markdown-mode magit inflections inf-ruby inf-clojure imenu-anywhere ido-ubiquitous hydra flycheck flx-ido expand-region exec-path-from-shell evil erlang elisp-slime-nav edn easy-kill crux company cider avy anzu aggressive-indent ag)))
+    (mode-icons neotree spaceline-all-the-icons dockerfile-mode salt-mode org-notebook latex-preview-pane auctex nginx-mode elixir-mode cask-mode buttercup rainbow-mode ztree zop-to-char zenburn-theme yasnippet yaml-mode which-key use-package super-save smex rainbow-delimiters pt projectile paredit noflet multiple-cursors move-text markdown-mode magit inflections inf-ruby inf-clojure imenu-anywhere ido-ubiquitous hydra flycheck flx-ido expand-region exec-path-from-shell evil erlang elisp-slime-nav edn easy-kill crux company cider avy anzu aggressive-indent ag)))
  '(safe-local-variable-values
    (quote
     ((checkdoc-package-keywords-flag)
