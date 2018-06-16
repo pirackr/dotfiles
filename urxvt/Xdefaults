@@ -7,9 +7,11 @@ Xft.hintstyle:  hintfull
 
 Rxvt*font:xft:Liberation Mono:pixelsize=12
 
-URxvt*transparent: false
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
+# URxvt*transparent: true 
 URxvt*tintColor: White
-URxvt*shading: 25
+URxvt*shading: 30 
 URxvt*scrollBar: false
 URxvt.letterSpace: -1
 URxvt*loginShell: true
